@@ -17,3 +17,8 @@ def colored(seq):
             tmpStr += bcolors['reset'] + nuc
 
     return tmpStr + '\033[0;0m'
+
+def readFile(filePath):
+    """Reading a file and returning a list of lines"""
+    with open(filePath, 'r') as f:
+        return [l.strip() for l in f.readlines()]

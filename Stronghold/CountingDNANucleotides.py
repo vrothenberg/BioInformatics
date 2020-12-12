@@ -1,6 +1,6 @@
 from DNAToolkit import *
 
-with open("Stronghold\\rosalind_dna.txt") as f:
+with open("test_data/rosalind_dna.txt") as f:
     seq = f.readline()
     f.close()
 

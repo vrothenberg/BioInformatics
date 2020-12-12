@@ -1,6 +1,5 @@
 from DNAToolkit import gc_content
 from utilities import readFile
-pat ='>Rosalind_'
 
 # Store file contents in a list
 FASTAFile = readFile("test_data/rosalind_gc.txt")

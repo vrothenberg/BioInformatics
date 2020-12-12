@@ -1,34 +1,28 @@
-from DNAToolkit import *
-
+from DNAToolkit import gc_content
+from utilities import readFile
 pat ='>Rosalind_'
 
-data = {}
+# Store file contents in a list
+FASTAFile = readFile("test_data/rosalind_gc.txt")
+# Dictionary for labels + data 
+FASTADict = {}
+# String for current lable 
+FASTALabel = ""
 
-curr = ""
-
-f = open("Stronghold//rosalind_gc.txt", "r")
-for line in f:
-    if pat in line:
-        curr = line[1:].rstrip()
-        data[curr] = ""
+# Converting FASTAFile list data into dictionary
+for line in FASTAFile:
+    if '>' in line:
+        FASTALabel = line[1:].rstrip()
+        FASTADict[FASTALabel] = ""
     else:
-        data[curr] += line.rstrip()
-
-f.close()
-
-max_key = ""
-max_gc = 0
-
-for key, seq in data.items():
-    if gc_content(seq) > max_gc:
-        max_gc = gc_content(seq)
-        max_key = key 
-
-print(f'{max_key}\n{max_gc}')
+        FASTADict[FASTALabel] += line.rstrip()
 
 
+# Dictionary comprehension to generate new dictionary with GC content values
+RESULTDict = {key: gc_content(value) for (key, value) in FASTADict.items()}
 
+# Look for max value
+MaxGCKey = max(RESULTDict, key=RESULTDict.get)
 
-#DNAStr = "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"
-
-#print(gc_content(DNAStr))
+# Print max GC content label and percentage
+print(f'{MaxGCKey}\n{RESULTDict[MaxGCKey]}')

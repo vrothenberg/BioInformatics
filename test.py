@@ -1,14 +1,14 @@
 from DNAToolkit import *
 import random
 
-# validateSeq tests 
+# validate_seq tests 
 rndDNAstr = "ACTGGTTAA"
-assert(validateSeq(rndDNAstr) == "ACTGGTTAA")
+assert(validate_seq(rndDNAstr) == "ACTGGTTAA")
 invalidDNAstr = "XGTAACC"
-assert(validateSeq(invalidDNAstr) == False)
+assert(validate_seq(invalidDNAstr) == False)
 mixedCaseDNAstr = "aAttCcCgaTTaca"
-assert(validateSeq(mixedCaseDNAstr) == mixedCaseDNAstr.upper())
+assert(validate_seq(mixedCaseDNAstr) == mixedCaseDNAstr.upper())
 randomDNAStr = ''.join([random.choice(Nucleotides) for nuc in range(20)])
-assert(validateSeq(randomDNAStr) != False)
+assert(validate_seq(randomDNAStr) != False)
 print(randomDNAStr)
-print(countNucFrequency(randomDNAStr))
+print(nucleotide_frequency(randomDNAStr))

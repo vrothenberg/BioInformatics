@@ -1,13 +1,23 @@
 from DNAToolkit import *
+from utilities import colored
+import random 
 
-seq = "ACGCTACAGTAACGCGCACTCGCGACGAACGTATGCGCGGTTAACTTTTCTCAGAGTTAATAGGGATCCCAGACTTGTGGTGTGCAGGAGAGGGTACAGCTTGTGAAGCATGTCTATTCCTATCGGAACAATGAGGGATCTTCTTTTCACGGCTCCTCTAAGCACTTTGTTCATTAAAACTGCACTTGTGTTTCCCGGTGATTGAGGCGTTCGGCAATCAGTTGAATGCTGTGACACGAAGGGTTCAGCCCGGATCCTATTGAAACTGGTTACCAGCAAACACGTAGGAGGGTACTACAGCGGGTGAGGGTACCTGCATTATGCGCAACGAGTGCATACCCCCAGAGGTGTGGTTATCAGTCCGCGTATGTCTTGGGTTGGATCATCACCACCCTACAGAGGCCGTGTCCGGCCTTACGCTTCAAGCGTCATTTGCCGCCAGACATGAATAAACAGGGGGACTTTGGCTCCTGTCACGAACTGCGTACACTGTTTCAGGAGGGGAATGTGTGGAAAACACTGTGACGGAGGCACTTCGTTAAGCCGGCGGTTACTACAACGTCGCCTACGCATTCCAACTATCCATGCGACTTTTTACGAGTCTCCGAGCGCGGTCTATGGGGGCGTAATCTCATCCTACTCTATCCTTTCTGGGAATTGCGATTCCACCCAGATTGCTTGGCGGGTAGCGCGATGGCATGGGATGTAGTGGCGATTCGAGTACGCTTAAATCTTCTGTTTCGAGAAATATCCAACCTGAGCGTGTGTCTCACCGACCAACAGTATGGCTGCGCTTGCTTGTAGACCAC"
+# Main testing file
 
+# Create random DNA sequence:
+randDNAStr = ''.join([random.choice(Nucleotides) for nuc in range(50)])
 
+DNAStr = validate_seq(randDNAStr)
 
-nucleotideCount = countNucFrequency(seq)
+print(f"\nSequence: {colored(DNAStr)}\n")
+print(f"[1] + Sequence Length: {len(DNAStr)}\n")
+print(colored(f'[2] + Nucleotide Frequency: {nucleotide_frequency(DNAStr)}\n'))
+print(f"[3] + DNA/RNA Transcription: {colored(transcription(DNAStr))}\n")
+print(f"[4] + DNA String + Complement:\n5' {colored(DNAStr)} 3' ")
+print(f"   {''.join(['|' for c in range(len(DNAStr))])}")
+print(f"3' {colored(complement(DNAStr))} 5' [Complement]\n")
 
-result = ""
-for nt in Nucleotides:
-    result = result + str(nucleotideCount[nt]) + " "
+print(f"5' {colored(reverse_complement(DNAStr))} 3' [Rev. Complement]\n")
 
-print(result)
+print(f"[5] + GC Content: {gc_content(DNAStr)}%\n")
+print(f"[6] + GC Content in Subsection k=5: {gc_content_subseq(DNAStr, k=5)}\n")

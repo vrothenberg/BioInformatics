@@ -6,7 +6,7 @@ with open("Stronghold\\rosalind_dna.txt") as f:
 
 
 
-nucleotideCount = countNucFrequency(seq)
+nucleotideCount = nucleotide_frequency(seq)
 
 # result = ""
 # for nt in Nucleotides:

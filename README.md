@@ -1,3 +1,3 @@
 # Bioinformatics
 
-Projects for Rosalind
+Python projects for Rosalind

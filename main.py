@@ -5,7 +5,7 @@ import random
 # Main testing file
 
 # Create random DNA sequence:
-randDNAStr = ''.join([random.choice(Nucleotides) for nuc in range(50)])
+randDNAStr = ''.join([random.choice(Nucleotides) for nuc in range(100)])
 
 DNAStr = validate_seq(randDNAStr)
 
@@ -21,3 +21,8 @@ print(f"5' {colored(reverse_complement(DNAStr))} 3' [Rev. Complement]\n")
 
 print(f"[5] + GC Content: {gc_content(DNAStr)}%\n")
 print(f"[6] + GC Content in Subsection k=5: {gc_content_subseq(DNAStr, k=5)}\n")
+
+print(f'[7] + Amino acids Sequence from DNA: {translate_seq(DNAStr, 0)}\n')
+
+print(f'[8] + Codon frequency (L): {codon_usage(DNAStr, "L")}\n')
+

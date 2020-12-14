@@ -26,3 +26,6 @@ print(f'[7] + Amino acids Sequence from DNA: {translate_seq(DNAStr, 0)}\n')
 
 print(f'[8] + Codon frequency (L): {codon_usage(DNAStr, "L")}\n')
 
+print(f'[9] + Reading frames:')
+for frame in gen_reading_frames(DNAStr):
+    print(frame)

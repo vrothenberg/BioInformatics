@@ -23,6 +23,10 @@ def transcription(seq):
     """ DNA -> RNA Transcription. Replacing Thymine with Uracil."""
     return seq.replace('T', 'U')
 
+def reverse_transcription(seq):
+    """ RNA -> DNA.  Replacing Uracil with Thymine."""
+    return seq.replace('U', 'T')
+
 def complement(seq):
     """Swapping Adenine with Thymine, Guanine with Cytosine."""
     # comp = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}

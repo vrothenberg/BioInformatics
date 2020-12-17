@@ -22,3 +22,16 @@ def readFile(filePath):
     """Reading a file and returning a list of lines"""
     with open(filePath, 'r') as f:
         return [l.strip() for l in f.readlines()]
+
+
+def FASTA_to_dict(filepath):
+    """Convert FASTA formatted file to dictionary of string labels and genetic sequences."""
+    FASTA_file = readFile(filepath)
+    result = {}
+    for line in FASTA_file:
+        if '>' in line:
+            FASTALabel = line[1:].rstrip()
+            result[FASTALabel] = ""
+        else:
+            result[FASTALabel] += line.rstrip()
+    return result 

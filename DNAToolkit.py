@@ -3,6 +3,7 @@ import collections
 from collections import Counter
 from structures import *
 from utilities import *
+import numpy as np
 
 # Check if the sequence is a valid DNA string
 def validate_seq(dna_seq):
@@ -85,4 +86,27 @@ def gen_reading_frames(seq):
     frames.append(translate_seq(reverse_complement(seq), 2))
     return frames 
 
+def longest_common_substring(s, t):
+    """Returns the longest common substring between two strings."""
+    m = len(s) + 1
+    n = len(t) + 1
+    common = np.zeros((m,n), dtype=np.uint8)
+    currmax = 0
+    coords = (0,0)
+    for i in range(1, m):
+        for j in range(1, n):
+            if s[i-1] == t[j-1]:
+                common[i][j] = common[i-1][j-1] + 1
+                if common[i][j] > currmax:
+                    coords = (i,j)
+                    currmax = common[i][j]
+
+    result = ""
+    (i,j) = coords
+    it = 0 
+    while i-it >= 0 and j-it >=0 and common[i-it][j-it] > 0:
+        result += s[i-it-1]
+        it += 1
+    print(common)
+    return result[::-1]
 

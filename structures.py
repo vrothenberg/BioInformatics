@@ -26,3 +26,12 @@ DNA_Codons = {
     "TAT": "Y", "TAC": "Y",
     "TAA": "_", "TAG": "_", "TGA": "_"
 }
+
+dominant_phenotype_prob = {
+    'AA-AA' : 1.0,
+    'AA-Aa' : 1.0,
+    'AA-aa' : 1.0, 
+    'Aa-Aa' : 0.75,
+    'Aa-aa' : 0.5, 
+    'aa-aa' : 0
+}

@@ -1,5 +1,5 @@
 from utilities import FASTA_to_dict
-import math 
+from math import factorial as f
 
 FASTA_dict = FASTA_to_dict("test_data/rosalind_pmch.txt")
 
@@ -10,12 +10,7 @@ U = seq.count('U')
 C = seq.count('C')
 G = seq.count('G')
 
-def nCr(n,r):
-    f = math.factorial 
-    return f(n) / (f(r) * f(n-r))
-
-
 if A == U and C == G:
-    print(round(nCr(A,1) * nCr(C,1)))
+    print(f(A) * f(C))
 else:
     print("Unequal numbers of A and U or C and G")

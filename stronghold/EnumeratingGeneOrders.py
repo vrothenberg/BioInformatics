@@ -1,12 +1,9 @@
-from itertools import permutations
+import math 
 
-def permute_to_list(n):
-    f = open("Rosalind/output.txt", "w")
-    nums = [i for i in range(1, n+1)]
-    perm_list = list(permutations(nums))
-    f.write(str(len(perm_list)) + "\n")
-    for p in perm_list:
-        f.write(' '.join(list(map(str,p))) + "\n")
-    f.close()
+def nCr(n,r):
+    f = math.factorial 
+    return f(n) / (f(r) * f(n-r))
 
-permute_to_list(5)
+ans = nCr(17,10) - nCr(6,3)*nCr(11,7) - nCr(12,7)*nCr(5,3) + nCr(6,3)*nCr(6,4)*nCr(5,3)
+
+print(ans)

@@ -27,3 +27,19 @@ def overlap_graph(kmers):
 
     return output
 
+def de_bruijn(k, text):
+    k = int(k)
+    kcomp = composition_k(k,text)
+    graph = {}
+    for kmer in kcomp:
+        prefix = kmer[0:-1]
+        suffix = kmer[1:]
+        insert(graph, prefix, suffix)
+
+    output = ''
+    keys = list(graph.keys())
+    keys.sort()
+    for key in keys:
+        uniques = ','.join(set(graph[key]))
+        output += key + ' -> ' + uniques + '\n'
+    return output

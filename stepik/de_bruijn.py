@@ -1,6 +1,6 @@
 import utilities, functions
 
-k, text = utilities.readFile('stepik\dataset_199_6.txt')
+k, text = utilities.readFile('stepik\input.txt')
 
 def insert(d, k, v):
     if k not in d:
@@ -41,5 +41,5 @@ def de_bruijn(k, text):
 
 text1 = 'TAATGCCATGGGATGTT'
 text2 = 'TAATGGGATGCCATGTT'
-print(de_bruijn(3,text1))
-print(de_bruijn(3,text2))
+#print(de_bruijn(3,text1))
+print(de_bruijn(k,text))

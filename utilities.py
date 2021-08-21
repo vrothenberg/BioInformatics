@@ -23,6 +23,11 @@ def readFile(filePath):
     with open(filePath, 'r') as f:
         return [l.strip() for l in f.readlines()]
 
+def writeFile(filePath, output):
+    f = open(filePath, 'w')
+    f.write(output)
+    f.close()
+
 
 def FASTA_to_dict(filepath):
     """Convert FASTA formatted file to dictionary of string labels and genetic sequences."""
